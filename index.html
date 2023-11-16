@@ -4,8 +4,53 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Column-count tester</title>
+    <style>
+      body {
+        column-count: 2;
+        width: 50%;
+        margin: 20px auto;
+      }
+
+      .block {
+        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        margin-bottom: 10px;
+        background-color: #e0e0e0;
+        padding: 10px;
+      }
+    </style>
   </head>
   <body>
-    Hello World
+    <script>
+      // Array of block elements with varying heights
+      var blockHeights = [100, 120, 180, 90, 130, 160, 110, 140, 170];
+      var blockColors = generateRandomColors(blockHeights.length);
+
+      function generateRandomColors(count) {
+        var colors = [];
+        for (var i = 0; i < count; i++) {
+          var color = "#" + Math.floor(Math.random() * 16777215).toString(16);
+          colors.push(color);
+        }
+        return colors;
+      }
+
+      // Function to create and append blocks to the body
+      function createBlocks() {
+        var body = document.body;
+
+        for (var i = 0; i < blockHeights.length; i++) {
+          var block = document.createElement("div");
+          block.className = "block";
+          block.style.height = blockHeights[i] + "px";
+          block.style.backgroundColor = blockColors[i];
+          body.appendChild(block);
+        }
+      }
+
+      // Call the function to create and append blocks
+      createBlocks();
+    </script>
   </body>
 </html>
