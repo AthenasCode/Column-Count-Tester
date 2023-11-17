@@ -1,5 +1,5 @@
 // Array of block elements with varying heights
-var blockHeights = [100, 120, 280, 209, 95, 321];
+var blockHeights = [119, 134, 122, 152];
 
 function generateRandomColor() {
   return "#" + Math.floor(Math.random() * 16777215).toString(16);

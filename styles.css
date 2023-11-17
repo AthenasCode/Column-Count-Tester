@@ -26,10 +26,6 @@
   display: block;
 }
 
-#columns-flex > .block {
-  display: flex;
-}
-
 #columns-inline-block > .block {
   display: inline-block;
 }

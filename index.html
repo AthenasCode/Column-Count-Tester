@@ -15,38 +15,64 @@
       <section id="explanation">
         <h2>About</h2>
         <p>
-          On older versions of Chrome, CSS's column-count property behaves
-          differently. If you are on a newer version of Chrome, you may not see
-          a difference between the below columns. However, if you open this
-          website in an older version of Chrome, you will see the first two
-          sections have misaligned columns. This is because in older versions of
-          Chrome, the margin of the bottom item of the first column will
-          separate from it's block and shift to the top of the second column.
+          On iPhones and iPads, CSS's column-count property seems to behave
+          differently. Users on other devices are unlikely to see a difference
+          between the below columns. However, if you are viewing this on an
+          iPhone or iPad*, you may see that the first two sections have
+          misaligned columns. This seems to be a result of the margin of the
+          bottom item of the first column separating from its block and shifting
+          to the top of the second column.
+          <br /><br />
+          If you go back far enough, this happens on other devices. On Chrome 56
+          (2017) on Windows 11, the same thing happens. It looks like they fixed
+          that in 57. On Chrome 40 (2014), the blocks don't display at all. But
+          on an iPad Pro 12.9 (2022), the misalignment occurs on both Safari and
+          Chrome. If you keep testing on older devices and browsers, you might
+          see other problems such as the blocks themselves breaking over the
+          column. Here are a couple of writeups from several years ago that
+          explain this behaviour in more detail:
         </p>
-        <h3>Universal styles for all blocks:</h3>
         <p>
-          .block { border: 1px solid black; width: 100%; box-sizing: border-box;
-          margin-bottom: 10px; break-inside: avoid-column; }
+          *Note that this behaviour does not show up if you use DevTools to view
+          the page on an iPad or iPhone. You can use a site like
+          <a href="https://live.browserstack.com">BrowserStack</a> or
+          <a href="https://www.lambdatest.com/">LambdaTest</a> to test this
+          yourself.
         </p>
-        <h3>Block vs flex vs inline-block</h3>
+
+        <h3>CSS</h3>
+        <p>Each column-section has a column-count: 2.</p>
         <p>
-          <em>Block</em>starts on a new line and extends to the full width of
-          its container, pushing subsequent elements to a new line.
-          <em>Inline-block</em>allows elements to sit next to each other
-          horizontally, like inline elements, but you can still set width,
-          height, and vertical margins like block elements. <em>Flex</em>item
-          margins behave similarly to block, depending on the container's axis.
+          Each block has the following styles: <br /><br />
+          .block { <br />border: 1px solid black;<br />
+          width: 100%;<br />
+          box-sizing: border-box;<br />
+          margin-bottom: 10px;<br />
+          break-inside: avoid-column;<br />
+          }
         </p>
+        <p>
+          Finally, the block "display" property has been set as indicated below.
+        </p>
+        <h3>"Block" vs "inline-block"</h3>
+        <ul>
+          <li>
+            <strong>Block</strong> starts on a new line and extends to the full
+            width of its container, pushing subsequent elements to a new line.
+          </li>
+          <li>
+            <strong>Inline-block</strong> allows elements to sit next to each
+            other horizontally, like inline elements, but you can still set
+            width, height, and vertical margins like block elements.
+          </li>
+        </ul>
       </section>
       <section id="columns-section">
         <div class="container">
           <p>display: block</p>
           <div id="columns-block" class="column-section"></div>
         </div>
-        <div class="container">
-          <p>display: flex</p>
-          <div id="columns-flex" class="column-section"></div>
-        </div>
+
         <div class="container">
           <p>display: inline-block</p>
           <div id="columns-inline-block" class="column-section"></div>
