@@ -2,8 +2,13 @@
   box-sizing: border-box;
 }
 
+body {
+  padding: 20px;
+}
+
 #columns-section {
   display: flex;
+  flex-wrap: wrap;
 }
 
 .container {
@@ -16,7 +21,6 @@
   -webkit-column-count: 2;
   -moz-column-count: 2;
   column-count: 2;
-  width: 100%;
   margin: 0 auto;
   border: 1px solid black;
   padding: 10px;

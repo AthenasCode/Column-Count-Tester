@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Column-count tester</title>
+    <title>Column-Count Tester</title>
     <link rel="stylesheet" href="./styles.css" />
     <script defer src="./blockGenerator.js"></script>
   </head>
@@ -14,11 +14,12 @@
     <main>
       <section id="explanation">
         <h2>About</h2>
+        <p><em>Last updated 17 November 2023</em></p>
         <p>
           On iPhones and iPads, CSS's column-count property seems to behave
           differently. Users on other devices are unlikely to see a difference
           between the below columns. However, if you are viewing this on an
-          iPhone or iPad*, you may see that the first two sections have
+          iPhone or iPad*, you may see below that the first section has
           misaligned columns. This seems to be a result of the margin of the
           bottom item of the first column separating from its block and shifting
           to the top of the second column.
@@ -29,9 +30,28 @@
           on an iPad Pro 12.9 (2022), the misalignment occurs on both Safari and
           Chrome. If you keep testing on older devices and browsers, you might
           see other problems such as the blocks themselves breaking over the
-          column. Here are a couple of writeups from several years ago that
+          column. Here are a couple of resources from several years ago that
           explain this behaviour in more detail:
         </p>
+        <ul>
+          <li>
+            <a
+              href="https://stackoverflow.com/questions/33769524/css-multi-column-layout-margin-issue"
+              >A StackOverflow answer from eight years ago</a
+            >
+            that claims that the display of the columns is also affected by
+            whether there is an odd or even number of elements. I haven't tested
+            this.
+          </li>
+          <li>
+            <a
+              href="https://zomigi.com/blog/deal-breaker-problems-with-css3-multi-columns/"
+              >An article from 2010</a
+            >
+            explaining deal-breaker problems with CSS3 multi-columns.
+          </li>
+        </ul>
+
         <p>
           *Note that this behaviour does not show up if you use DevTools to view
           the page on an iPad or iPhone. You can use a site like
@@ -43,8 +63,10 @@
         <h3>CSS</h3>
         <p>Each column-section has a column-count: 2.</p>
         <p>
-          Each block has the following styles: <br /><br />
-          .block { <br />border: 1px solid black;<br />
+          Each coloured block has the following styles: <br /><br />
+          .block { <br />
+          -webkit-column-count: 2;<br />
+          -moz-column-count: 2;<br />border: 1px solid black;<br />
           width: 100%;<br />
           box-sizing: border-box;<br />
           margin-bottom: 10px;<br />
