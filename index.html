@@ -12,19 +12,19 @@
       }
 
       .block {
-        display: block;
+        display: inline;
+        border: 1px solid black;
         width: 100%;
         box-sizing: border-box;
         margin-bottom: 10px;
-        background-color: #e0e0e0;
-        padding: 10px;
+        break-inside: avoid-column;
       }
     </style>
   </head>
   <body>
     <script>
       // Array of block elements with varying heights
-      var blockHeights = [100, 120, 180, 90, 130, 160, 110, 140, 170];
+      var blockHeights = [100, 120, 280, 209];
       var blockColors = generateRandomColors(blockHeights.length);
 
       function generateRandomColors(count) {
