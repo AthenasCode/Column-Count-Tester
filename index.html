@@ -4,53 +4,55 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Column-count tester</title>
-    <style>
-      body {
-        column-count: 2;
-        width: 50%;
-        margin: 20px auto;
-      }
-
-      .block {
-        display: inline;
-        border: 1px solid black;
-        width: 100%;
-        box-sizing: border-box;
-        margin-bottom: 10px;
-        break-inside: avoid-column;
-      }
-    </style>
+    <link rel="stylesheet" href="./styles.css" />
+    <script defer src="./blockGenerator.js"></script>
   </head>
   <body>
-    <script>
-      // Array of block elements with varying heights
-      var blockHeights = [100, 120, 280, 209];
-      var blockColors = generateRandomColors(blockHeights.length);
-
-      function generateRandomColors(count) {
-        var colors = [];
-        for (var i = 0; i < count; i++) {
-          var color = "#" + Math.floor(Math.random() * 16777215).toString(16);
-          colors.push(color);
-        }
-        return colors;
-      }
-
-      // Function to create and append blocks to the body
-      function createBlocks() {
-        var body = document.body;
-
-        for (var i = 0; i < blockHeights.length; i++) {
-          var block = document.createElement("div");
-          block.className = "block";
-          block.style.height = blockHeights[i] + "px";
-          block.style.backgroundColor = blockColors[i];
-          body.appendChild(block);
-        }
-      }
-
-      // Call the function to create and append blocks
-      createBlocks();
-    </script>
+    <header>
+      <h1>Column-count tester</h1>
+    </header>
+    <main>
+      <section id="explanation">
+        <h2>About</h2>
+        <p>
+          On older versions of Chrome, CSS's column-count property behaves
+          differently. If you are on a newer version of Chrome, you may not see
+          a difference between the below columns. However, if you open this
+          website in an older version of Chrome, you will see the first two
+          sections have misaligned columns. This is because in older versions of
+          Chrome, the margin of the bottom item of the first column will
+          separate from it's block and shift to the top of the second column.
+        </p>
+        <h3>Universal styles for all blocks:</h3>
+        <p>
+          .block { border: 1px solid black; width: 100%; box-sizing: border-box;
+          margin-bottom: 10px; break-inside: avoid-column; }
+        </p>
+        <h3>Block vs flex vs inline-block</h3>
+        <p>
+          <em>Block</em>starts on a new line and extends to the full width of
+          its container, pushing subsequent elements to a new line.
+          <em>Inline-block</em>allows elements to sit next to each other
+          horizontally, like inline elements, but you can still set width,
+          height, and vertical margins like block elements. <em>Flex</em>item
+          margins behave similarly to block, depending on the container's axis.
+        </p>
+      </section>
+      <section id="columns-section">
+        <div class="container">
+          <p>display: block</p>
+          <div id="columns-block" class="column-section"></div>
+        </div>
+        <div class="container">
+          <p>display: flex</p>
+          <div id="columns-flex" class="column-section"></div>
+        </div>
+        <div class="container">
+          <p>display: inline-block</p>
+          <div id="columns-inline-block" class="column-section"></div>
+        </div>
+      </section>
+    </main>
+    <footer></footer>
   </body>
 </html>

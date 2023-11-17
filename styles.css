@@ -1,0 +1,41 @@
+* {
+  box-sizing: border-box;
+}
+
+#columns-section {
+  display: flex;
+}
+
+.container {
+  flex-grow: 1;
+  min-width: 300px;
+  margin: 10px;
+}
+
+.column-section {
+  column-count: 2;
+  width: 100%;
+  margin: 0 auto;
+  border: 1px solid black;
+  padding: 10px;
+}
+
+#columns-block > .block {
+  display: block;
+}
+
+#columns-flex > .block {
+  display: flex;
+}
+
+#columns-inline-block > .block {
+  display: inline-block;
+}
+
+.block {
+  border: 1px solid black;
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 10px;
+  break-inside: avoid-column;
+}
