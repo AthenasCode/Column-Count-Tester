@@ -21,6 +21,7 @@ body {
   -webkit-column-count: 2;
   -moz-column-count: 2;
   column-count: 2;
+  column-gap: 10px;
   margin: 0 auto;
   border: 1px solid black;
   padding: 10px;
@@ -32,6 +33,7 @@ body {
 
 #columns-inline-block > .block {
   display: inline-block;
+  vertical-align: top;
 }
 
 .block {

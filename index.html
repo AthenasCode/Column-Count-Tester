@@ -14,7 +14,7 @@
     <main>
       <section id="explanation">
         <h2>About</h2>
-        <p><em>Last updated 17 November 2023</em></p>
+        <p><em>Last updated 18 November 2023</em></p>
         <p>
           On iPhones and iPads, CSS's column-count property seems to behave
           differently. Users on other devices are unlikely to see a difference
@@ -62,7 +62,15 @@
         </p>
 
         <h3>CSS</h3>
-        <p>Each column-section has a column-count: 2.</p>
+        <p>
+          Each column-section has the following styles:<br /><br />.column-section
+          { <br />-webkit-column-count: 2; <br />-moz-column-count: 2;
+          <br />column-count: 2;<br />
+          column-gap: 10px; <br />margin: 0 auto;<br />
+          border: 1px solid black; <br />padding: 10px;<br />
+          }
+        </p>
+
         <p>
           Each coloured block has the following styles: <br /><br />
           .block { <br />
@@ -75,18 +83,35 @@
           }
         </p>
         <p>
-          Finally, the block "display" property has been set as indicated below.
+          The colours are applied dynamically using JavaScript. Finally, the
+          block "display" property has been set as indicated below. Note also
+          that the inline-block blocks have also been given the property
+          "vertical-align: top". There seems to be some background
+          vertical-align property being applied to inline-block elements by
+          default, and "vertical-align: top" ensures that the gap between blocks
+          is exactly the size of the margin-bottom property.
         </p>
-        <h3>"Block" vs "inline-block"</h3>
+        <h3>
+          <a
+            href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_flow_layout/Block_and_inline_layout_in_normal_flow"
+            >"Block" vs "inline-block"</a
+          >
+        </h3>
         <ul>
           <li>
-            <strong>Block</strong> starts on a new line and extends to the full
-            width of its container, pushing subsequent elements to a new line.
+            <strong>Block:</strong> "Boxes are laid out one after the other,
+            vertically, beginning at the top of a containing block. The vertical
+            distance between two sibling boxes is determined by the 'margin'
+            properties. Vertical margins between adjacent block-level boxes in a
+            block formatting context collapse."
           </li>
           <li>
-            <strong>Inline-block</strong> allows elements to sit next to each
-            other horizontally, like inline elements, but you can still set
-            width, height, and vertical margins like block elements.
+            <strong>Inline-block:</strong> "Boxes are laid out horizontally, one
+            after the other, beginning at the top of a containing block.
+            Horizontal margins, borders, and padding are respected between these
+            boxes. The boxes may be aligned vertically in different ways: their
+            bottoms or tops may be aligned, or the baselines of text within them
+            may be aligned."
           </li>
         </ul>
       </section>
